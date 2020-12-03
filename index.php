@@ -1,23 +1,24 @@
-
+<?php require('database_connection.php');
+$conn =new DataBaseAction();?>
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>PHP Ajax Shopping Cart by using Bootstrap Popover</title>
-		<script src="js/jquery.min.js"></script>
-		 <link rel="stylesheet" href="css/bootstrap.min.css" />   
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		 <!-- <link rel="stylesheet" href="css/bootstrap.min.css" />    -->
 
 
-		 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
 
 		 <!-- Latest compiled and minified CSS -->
 			
-			<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		
 		 		 
 		 <!-- Latest compiled and minified JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
 		  <!-- <script src="js/bootstrap.min.js"></script>  -->
-		<style>
+		  <style>
 		.popover
 		{
 		    width: 100%;
@@ -28,40 +29,13 @@
 		
 	</head>
 	<body>
-	<?php
-//index.php
+				<?php
+			//index.php
+			include('Login.php');
+			echo include 'header.php';
 
-include 'Login.php';
-?>
-	<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Brand</a>
-    </div>
+			?>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
-        
-      </ul>
-      
-      <form class="navbar-form navbar-right m-4">
-        
-		<button type="submit" class="btn btn-default" id="btnlogin">Login</button>
-		<button type="submit" class="btn btn-default">Sign In</button>
-      </form>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
 	
 	
 		<div class="container">
@@ -74,16 +48,14 @@ include 'Login.php';
 				<div class="container-fluid">
 					
 					
-					<div id="navbar-cart" class="navbar-collapse collapse">
-						<ul class="nav navbar-nav">
-							<li>
+					
 								<a id="cart-popover" class="btn btn-danger" data-placement="bottom" title="Shopping Cart">
 									<span class="glyphicon glyphicon-shopping-cart"></span>
-									<span class="badge"></span>
+									<span class="badge badge-light"></span>
 									<span class="total_price">$ 0.00</span>
 								</a>
-							</li>
-						</ul>
+						
+						
 					</div>
 					
 				</div>
@@ -107,8 +79,51 @@ include 'Login.php';
 			</div>
 			
 		</div>
-		
-		
+		<footer class="footer" style="background-color: aqua;">
+        <div class="container">
+            <div class="row">             
+                <div class="col-4 offset-1 col-sm-2">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="index.php">Menu</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-7 col-sm-5">
+                    <h5>Our Address</h5>
+                    <address>
+		              121, Clear Water Bay Road<br>
+		              Clear Water Bay, Kowloon<br>
+		              HONG KONG<br>
+                      <i class="fa fa-phone fa-lg"></i>: +852 1234 5678<br>
+                      <i class="fa fa-fax fa-lg"></i>: +852 8765 4321<br>
+                      <i class="fa fa-envelope fa-lg"></i>:<a href="mailto:confusion@food.net">confusion@food.net</a>
+		           </address>
+                </div>
+                <div class="col-12 col-sm-4 align-self-center">
+                    <div class="text-center">
+                        <a class="btn btn-social-icon btn-google" href="http://google.com/+"><i class="fa fa-google-plus"></i></a>
+                        <a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook"></i></a>
+                        <a class="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/in/"><i class="fa fa-linkedin"></i></a>
+                        <a class="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i class="fa fa-twitter"></i></a>
+                        <a class="btn btn-social-icon btn-google" href="http://youtube.com/"><i class="fa fa-youtube"></i></a>
+                        <a class="btn btn-social-icon" href="mailto:"><i class="fa fa-envelope-o"></i></a>
+                    </div>
+                </div>
+           </div>
+           <br/><br/>
+           <div class="row justify-content-center">             
+                <div class="col-auto">
+                    <p>© Copyright 2018 Ristorante Con Fusion</p>
+                </div>
+           </div>
+        </div>
+    </footer>
+	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 		<script>  
 $(document).ready(function(){
 
@@ -116,22 +131,6 @@ $(document).ready(function(){
 
 $('#loginModal').modal('toggle')
 });
-
-	// load_product();
-
-	// load_cart_data();
-    
-	// function load_product()
-	// {
-	// 	$.ajax({
-	// 		url:"fetch_item.php",
-	// 		method:"POST",
-	// 		success:function(data)
-	// 		{
-	// 			$('#display_item').html(data);
-	// 		}
-	// 	});
-	// }
 
 	function load_cart_data()
 	{
@@ -164,6 +163,7 @@ $('#loginModal').modal('toggle')
 		var product_price = $('#price'+product_id+'').val();
 		var product_quantity = $('#quantity'+product_id).val();
 		var action = "add";
+		console.log(product_quantity)
 		if(product_quantity > 0)
 		{
 			$.ajax({
